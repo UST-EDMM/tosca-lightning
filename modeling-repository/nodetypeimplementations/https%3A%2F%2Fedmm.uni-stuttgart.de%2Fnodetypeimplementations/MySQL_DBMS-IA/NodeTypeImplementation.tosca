@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="https://edmm.uni-stuttgart.de/nodetypeimplementations" id="winery-defs-for_ntyiIgeneral1-MySQL_DBMS-IA">
+    <NodeTypeImplementation xmlns:ntyIgeneral="https://edmm.uni-stuttgart.de/nodetypes" targetNamespace="https://edmm.uni-stuttgart.de/nodetypeimplementations" name="MySQL_DBMS-IA" nodeType="ntyIgeneral:MySQL_DBMS">
+        <ImplementationArtifacts>
+            <ImplementationArtifact xmlns:atyIgeneral="https://edmm.uni-stuttgart.de/artifacttypes" xmlns:ateIgeneral1="https://edmm.uni-stuttgart.de/artifacttemplates" name="create" interfaceName="http://opentosca.org/interfaces/lifecycle" operationName="create" artifactType="atyIgeneral:Script" artifactRef="ateIgeneral1:MySQL_DBMS-Create"/>
+            <ImplementationArtifact xmlns:atyIgeneral="https://edmm.uni-stuttgart.de/artifacttypes" xmlns:ateIgeneral1="https://edmm.uni-stuttgart.de/artifacttemplates" name="start" interfaceName="http://opentosca.org/interfaces/lifecycle" operationName="start" artifactType="atyIgeneral:Script" artifactRef="ateIgeneral1:MySQL_DBMS-Start"/>
+        </ImplementationArtifacts>
+    </NodeTypeImplementation>
+</Definitions>
