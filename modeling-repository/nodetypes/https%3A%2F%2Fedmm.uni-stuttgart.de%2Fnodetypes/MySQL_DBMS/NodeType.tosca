@@ -12,11 +12,6 @@
             </winery:properties>
         </winery:PropertiesDefinition>
         <DerivedFrom xmlns:ntyIgeneral="https://edmm.uni-stuttgart.de/nodetypes" typeRef="ntyIgeneral:DBMS"/>
-        <Interfaces>
-            <Interface name="http://opentosca.org/interfaces/lifecycle">
-                <Operation name="create"/>
-                <Operation name="start"/>
-            </Interface>
-        </Interfaces>
+        <Interfaces/>
     </NodeType>
 </Definitions>

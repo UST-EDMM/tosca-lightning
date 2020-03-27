@@ -5,7 +5,6 @@
         <Interfaces>
             <Interface name="http://opentosca.org/interfaces/lifecycle">
                 <Operation name="configure"/>
-                <Operation name="start"/>
             </Interface>
         </Interfaces>
     </NodeType>

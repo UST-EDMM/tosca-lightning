@@ -1,8 +1,10 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
+.vscode
 .idea
 *.iws
 *.iml
 *.ipr
 *.log
-.vscode/
+lib
+edmm*
+kubernetes
+petclinic.yml
