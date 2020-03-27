@@ -9,8 +9,19 @@
 
 ## Welcome
 
-Modeling and Transformation System for porting TOSCA to Production-Ready Deployment Technologies
+TOSCA as a standardized cloud modeling language is not widely used in the industry.
+Concrete deployment automation technologies, such as Kubernetes, Ansible, Terraform, or AWS CloudFormation, are much more common as they often provide comprehensive tooling and support for working in modern software engineering environments.
 
+To make TOSCA more attractive to practitioners, we introduce the **TOSCA Lightning** toolchain to *a modeling and transformation system for porting TOSCA to production-ready deployment technologies*.
+
+**Why choose a particular deployment automation technology when TOSCA Lightning supports them all?**
+
+In our recent research, we identified the essential modeling parts that are supported by all deployment automation technologies.
+Thereby, we introduced the essential deployment metamodel (EDMM) providing a common understanding and technology-independent baseline of declarative deployment models.
+Moreover, EDMM enacts the transformation from a common metamodel into technology-specific deployment models including all required files and artifacts.
+
+Therefore, we published the *TOSCA Light modeling profile* as a reduced subset of TOSCA modeling constructs which is compliant with EDMM.
+By using the TOSCA Lightning toolchain, practitioners are able to model their applications in an abstract and technology-agnostic modeling language syntax and can still use their deployment automation technology of choice for execution.
 
 
 
@@ -145,6 +156,7 @@ minikube delete
 ```
 
 
+
 ## Get In Touch
 
 Are you interested in our research, do you have any questions or would you like further information?
@@ -153,14 +165,15 @@ Just get in touch with us below:
 * Michael Wurster ([@miwurster](https://github.com/miwurster), [write a mail](mailto:wurster@iaas.uni-stuttgart.de?subject=[GitHub]%20TOSCA%20Lightning))
 
 
+
 ## Learn More & Publications
 
 * Michael Wurster, Uwe Breitenbücher, Michael Falkenthal, Christoph Krieger, Frank Leymann & Karoline Saatkamp:
-  [The Essential Deployment Metamodel: A Systematic Review of Deployment Automation Technologies](https://link.springer.com/article/10.1007%2Fs00450-019-00412-x).
+  [**The Essential Deployment Metamodel: A Systematic Review of Deployment Automation Technologies**](https://link.springer.com/article/10.1007%2Fs00450-019-00412-x).
   In: SICS Software-Intensive Cyber-Physical Systems (2019)
 * Michael Wurster, Uwe Breitenbücher, Antonio Brogi, Ghareeb Falazi, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
-  [The EDMM Modeling and Transformation System](https://www.iaas.uni-stuttgart.de/publications/ICSOC-2019-The-EDMM-Modeling-and-Transformation-System.pdf).
+  [**The EDMM Modeling and Transformation System**](https://www.iaas.uni-stuttgart.de/publications/ICSOC-2019-The-EDMM-Modeling-and-Transformation-System.pdf).
   In: Service-Oriented Computing - ICSOC 2019 Workshops
 * Michael Wurster, Uwe Breitenbücher, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
-  TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies
+  **TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies**.
   In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020 **(To Appear)**
