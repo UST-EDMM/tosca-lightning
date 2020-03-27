@@ -1,7 +1,9 @@
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
 ![TOSCA Lightning](docs/logo.png)
+
+**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)**
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Welcome
 
@@ -44,10 +46,10 @@ docker-compose up -d
 
 Open a browser a go to <http://localhost:8080> to launch the modeling environment.
 
-The TOSCA Lightning Modeling Environment is started on the *Service Template List* view.
+The TOSCA Lightning Modeling Environment is started in the *Service Template List* view.
 For the Quickstart, we prepared a TOSCA deployment model of the Spring PetClinic application.
 
-By clicking on the *PetClinic* Service Template you enter the *Service Template Detail* view.
+By clicking on the *PetClinic* Service Template, you enter the *Service Template Detail* view.
 
 ![](docs/quickstart/01-petclinic.png)
 
@@ -55,7 +57,7 @@ In the *Topology Template* submenu, you can open the *Topology Editor*.
 The Topology Editor is launched in a separate window.
 
 In this view, the overall structure of the application is modeled.
-Further, the Topology Editor is used to set any property value, which will be used as configuration value for the instantiation of the component.
+Further, the Topology Editor is used to set any property value which will be used as configuration for the instantiation of the component.
 
 ![](docs/quickstart/02-topology.png)
 
@@ -92,7 +94,7 @@ Finally, we can execute the transformation to Kubernetes using the following com
 ./edmm transform kubernetes ./petclinic.yml
 ```
 
-### Run PetClinic Application on Kubernetes
+### Run the PetClinic Application on Kubernetes
 
 > **Kubernetes on HyperV using minikube**
 >
