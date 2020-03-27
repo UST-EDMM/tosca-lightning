@@ -1,9 +1,11 @@
 
 ![TOSCA Lightning](docs/logo.png)
 
-**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)**
+---
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)** &nbsp;|&nbsp; [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+---
 
 ## Welcome
 
