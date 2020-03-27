@@ -143,13 +143,13 @@ Finally, we can execute the transformation to Kubernetes using the following com
 >
 > Start a PowerShell with administrative rights and start a Kubernetes cluster:
 >
-> ```shell script
+> ```
 > minikube start --cpus 2 --memory 4096 --vm-driver=hyperv
 > ```
 >
 > Configure PowerShell to use minikube's Docker environment
 >
-> ```shell script
+> ```
 > minikube docker-env | Invoke-Expression
 > ```
 
