@@ -3,7 +3,7 @@
 
 ![TOSCA Lightning](docs/logo.png)
 
-**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)**
+[**Welcome**](#welcome) &nbsp;**|**&nbsp; [**Quickstart**](#quickstart)
 
 ---
 
