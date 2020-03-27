@@ -51,7 +51,8 @@ It's a web application and runs on a Tomcat web server while connecting to a MyS
 
 The model is created using the TOSCA Lightning Modeling Environment.
 Notably, the model is not specifically composed for Kubernetes as the target runtime environment.
-It is rather modeled in a generic, component-based manner, which is then translated to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
+It is rather modeled in a generic, component-based manner.
+Afterwards, the resulting model is translated using the TOSCA Lightning Transformation CLI to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
 
 ### Pre-requisites
 
