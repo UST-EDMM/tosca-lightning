@@ -23,7 +23,9 @@ Moreover, EDMM enacts the transformation from a common metamodel into technology
 Therefore, we published the *TOSCA Light modeling profile* as a reduced subset of TOSCA modeling constructs which is compliant with EDMM.
 By using the TOSCA Lightning toolchain, practitioners are able to model their applications in an abstract and technology-agnostic modeling language syntax and can still use their deployment automation technology of choice for execution.
 
-The toolchain consists of the [TOSCA Lightning Modeling Environment](https://github.com/eclipse/winery) and the [TOSCA Lightning Transformation CLI](https://github.com/UST-EDMM/transformation-framework)].
+The toolchain consists of the [TOSCA Lightning Modeling Environment](https://github.com/eclipse/winery) and the [TOSCA Lightning Transformation CLI](https://github.com/UST-EDMM/transformation-framework).
+
+#### TOSCA Lightning Modeling Environment
 
 The TOSCA Lightning Modeling Environment is a web-based environment to graphically model TOSCA-based application topologies.
 It provides a *Management Interface* to manage all TOSCA related entities, such as node types, their property definitions, operations, and artifacts.
@@ -32,6 +34,8 @@ Further, it provides a *Topology Modeler* component which enables the graphical 
 The TOSCA Lightning Modeling Environment checks the TOSCA Light compliance when a user opens a TOSCA service template.
 Each created or imported TOSCA model may be flagged as TOSCA Light compliant by showing a respective TOSCA Light logo at the top.
 The user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
+
+#### TOSCA Lightning Transformation CLI
 
 The TOSCA Lightning Transformation CLI provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
 Together with the model, a user selects a certain target deployment technology and the framework generates the respective files and templates.
