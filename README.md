@@ -9,7 +9,7 @@
 
 ## Welcome
 
-TOSCA as a standardized cloud modeling language is not widely used in the industry.
+TOSCA as a standardized cloud modeling language is not widely used in industry.
 Concrete deployment automation technologies, such as Kubernetes, Ansible, Terraform, or AWS CloudFormation, are much more common as they often provide comprehensive tooling and support for working in modern software engineering environments.
 
 To make TOSCA more attractive to practitioners, we introduce the **TOSCA Lightning** toolchain to *a modeling and transformation system for porting TOSCA to production-ready deployment technologies*.
@@ -23,9 +23,31 @@ Moreover, EDMM enacts the transformation from a common metamodel into technology
 Therefore, we published the *TOSCA Light modeling profile* as a reduced subset of TOSCA modeling constructs which is compliant with EDMM.
 By using the TOSCA Lightning toolchain, practitioners are able to model their applications in an abstract and technology-agnostic modeling language syntax and can still use their deployment automation technology of choice for execution.
 
+The toolchain consists of the [TOSCA Lightning Modeling Environment](https://github.com/eclipse/winery) and the [TOSCA Lightning Transformation CLI](https://github.com/UST-EDMM/transformation-framework)].
+
+The TOSCA Lightning Modeling Environment is a web-based environment to graphically model TOSCA-based application topologies.
+It provides a *Management Interface* to manage all TOSCA related entities, such as node types, their property definitions, operations, and artifacts.
+Further, it provides a *Topology Modeler* component which enables the graphical composition of the application and its desired target state to be deployed.
+
+The TOSCA Lightning Modeling Environment checks the TOSCA Light compliance when a user opens a TOSCA service template.
+Each created or imported TOSCA model may be flagged as TOSCA Light compliant by showing a respective TOSCA Light logo at the top.
+The user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
+
+The TOSCA Lightning Transformation CLI provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
+Together with the model, a user selects a certain target deployment technology and the framework generates the respective files and templates.
+However, the TOSCA Lightning Transformation CLI is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
+
 
 
 ## Quickstart
+
+For a quick start, we outline a step-by-step guide to model, transform, and deploy a TOSCA Light application to **Kubernetes**.
+For the sake of demonstration, we use the Spring PetClinic application which demonstrates the use of the Spring Boot framework.
+It's a web application and runs on a Tomcat web server while connecting to a MySQL database to store its data.
+
+The model is created using the TOSCA Lightning Modeling Environment.
+Notably, the model is not specifically composed for Kubernetes as the target runtime environment.
+It is rather modeled in a generic, component-based manner, which is then translated to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
 
 ### Pre-requisites
 
