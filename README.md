@@ -1,15 +1,18 @@
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 ![TOSCA Lightning](docs/logo.png)
 
----
-
-**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)** &nbsp;|&nbsp; [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+**[Welcome](#welcome) &nbsp;|&nbsp; [Quickstart](#quickstart)**
 
 ---
 
 ## Welcome
 
 Modeling and Transformation System for porting TOSCA to Production-Ready Deployment Technologies
+
+
+
 
 ## Quickstart
 
@@ -140,3 +143,24 @@ Shutdown the minikube cluster:
 minikube stop
 minikube delete
 ```
+
+
+## Get In Touch
+
+Are you interested in our research, do you have any questions or would you like further information?
+Just get in touch with us below:
+
+* Michael Wurster ([@miwurster](https://github.com/miwurster), [write a mail](mailto:wurster@iaas.uni-stuttgart.de?subject=[GitHub]%20TOSCA%20Lightning))
+
+
+## Learn More & Publications
+
+* Michael Wurster, Uwe Breitenbücher, Michael Falkenthal, Christoph Krieger, Frank Leymann & Karoline Saatkamp:
+  [The Essential Deployment Metamodel: A Systematic Review of Deployment Automation Technologies](https://link.springer.com/article/10.1007%2Fs00450-019-00412-x).
+  In: SICS Software-Intensive Cyber-Physical Systems (2019)
+* Michael Wurster, Uwe Breitenbücher, Antonio Brogi, Ghareeb Falazi, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
+  [The EDMM Modeling and Transformation System](https://www.iaas.uni-stuttgart.de/publications/ICSOC-2019-The-EDMM-Modeling-and-Transformation-System.pdf).
+  In: Service-Oriented Computing - ICSOC 2019 Workshops
+* Michael Wurster, Uwe Breitenbücher, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
+  TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies
+  In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020 **(To Appear)**
