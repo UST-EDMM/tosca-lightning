@@ -3,7 +3,9 @@
 
 ![TOSCA Lightning](docs/logo.png)
 
-[**Welcome**](#welcome) &nbsp;|&nbsp; [**Quickstart**](#quickstart)
+[**Welcome**](#welcome) &nbsp;|&nbsp; [**Quickstart**](#quickstart) &nbsp;|&nbsp; [**Get In Touch**](#get-in-touch) &nbsp;|&nbsp; [**Learn More**](#learn-more)
+
+
 
 ---
 
@@ -193,7 +195,7 @@ Just get in touch with us below:
 
 
 
-## Learn More & Publications
+## Learn More
 
 * Michael Wurster, Uwe Breitenbücher, Michael Falkenthal, Christoph Krieger, Frank Leymann & Karoline Saatkamp:
   [**The Essential Deployment Metamodel: A Systematic Review of Deployment Automation Technologies**](https://link.springer.com/article/10.1007%2Fs00450-019-00412-x).
@@ -204,3 +206,9 @@ Just get in touch with us below:
 * Michael Wurster, Uwe Breitenbücher, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
   **TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies**.
   In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020 **(To Appear)**
+
+
+
+## Architecture and Toolchain
+
+![Toolchain](docs/toolchain.png)
