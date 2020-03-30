@@ -14,7 +14,7 @@
 TOSCA as a standardized cloud modeling language is not widely used in industry.
 Concrete deployment automation technologies, such as Kubernetes, Ansible, Terraform, or AWS CloudFormation, are much more common as they often provide comprehensive tooling and support for working in modern software engineering environments.
 
-To make TOSCA more attractive to practitioners, we introduce the **TOSCA Lightning** toolchain to *a modeling and transformation system for porting TOSCA to production-ready deployment technologies*.
+To make TOSCA more attractive to practitioners, we introduce the **TOSCA Lightning** toolchain as *a modeling and transformation system for porting TOSCA to production-ready deployment technologies*.
 
 **Why choose a particular deployment automation technology when TOSCA Lightning supports them all?**
 
