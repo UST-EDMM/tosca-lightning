@@ -1,0 +1,10 @@
+**/.idea/
+**/.docker/
+**/.mvn/
+**/target/
+**/build/
+**/node/
+**/node_modules/
+**/dist/
+**/*.iml
+**/*.lock
