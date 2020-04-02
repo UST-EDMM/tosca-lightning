@@ -22,18 +22,18 @@
         <executions>
           <execution>
             <phase>initialize</phase>
-            <id>install node and npm</id>
+            <id>install node and yarn</id>
             <goals>
               <goal>install-node-and-yarn</goal>
             </goals>
             <configuration>
-              <nodeVersion>v12.13.1</nodeVersion>
+              <nodeVersion>v12.16.1</nodeVersion>
               <yarnVersion>v1.22.4</yarnVersion>
             </configuration>
           </execution>
           <execution>
             <phase>generate-resources</phase>
-            <id>install npm dependencies</id>
+            <id>install dependencies</id>
             <goals>
               <goal>yarn</goal>
             </goals>
@@ -45,7 +45,7 @@
             <phase>test</phase>
             <id>lint app</id>
             <goals>
-              <goal>npm</goal>
+              <goal>yarn</goal>
             </goals>
             <configuration>
               <arguments>run ng lint</arguments>
@@ -55,7 +55,7 @@
             <phase>package</phase>
             <id>build app</id>
             <goals>
-              <goal>npm</goal>
+              <goal>yarn</goal>
             </goals>
             <configuration>
               <arguments>run ng build --prod</arguments>

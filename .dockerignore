@@ -1,10 +1,10 @@
-**/.idea/
-**/.docker/
-**/.mvn/
-**/target/
-**/build/
+.git/
+.idea/
+.mvn/
+docs/
+modeling-repository/
+**/dist/
 **/node/
 **/node_modules/
-**/dist/
 **/*.iml
-**/*.lock
+tosca-lightning-web/target/
