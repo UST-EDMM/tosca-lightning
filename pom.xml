@@ -20,6 +20,7 @@
   </properties>
 
   <modules>
+    <module>tosca-lightning-app</module>
     <module>tosca-lightning-web</module>
   </modules>
 
