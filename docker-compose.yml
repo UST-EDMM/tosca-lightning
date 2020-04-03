@@ -3,9 +3,9 @@ services:
   tosca-lightning:
     build:
       context: .
-      image: ustedmm/tosca-lightning:latest
-      ports:
-        - '9000:8080'
+    image: ustedmm/tosca-lightning:latest
+    ports:
+      - '9000:8080'
   winery:
     image: opentosca/winery:latest
     environment:
@@ -21,5 +21,7 @@ services:
       - '8080:8080'
   transformation-framework:
     image: ustedmm/transformation-framework:latest
+    volumes:
+      - ./modeling-repository:/var/repository
     ports:
       - '5000:5000'
