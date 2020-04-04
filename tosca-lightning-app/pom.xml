@@ -48,7 +48,7 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>run ng lint</arguments>
+              <arguments>lint</arguments>
             </configuration>
           </execution>
           <execution>
@@ -58,7 +58,7 @@
               <goal>yarn</goal>
             </goals>
             <configuration>
-              <arguments>run ng build --prod</arguments>
+              <arguments>build</arguments>
             </configuration>
           </execution>
         </executions>
@@ -69,7 +69,7 @@
         <configuration>
           <filesets>
             <fileset>
-              <directory>dist</directory>
+              <directory>build</directory>
             </fileset>
           </filesets>
         </configuration>

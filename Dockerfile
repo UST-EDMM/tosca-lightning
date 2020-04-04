@@ -3,7 +3,7 @@ COPY . /tmp/build
 WORKDIR /tmp/build
 RUN mvn package -DskipTests
 RUN unzip /tmp/build/tosca-lightning-web/target/tosca-lightning-web-*.war -d /tmp/ROOT
-RUN cp -a /tmp/build/tosca-lightning-app/dist/* /tmp/ROOT/WEB-INF/classes/static
+RUN cp -a /tmp/build/tosca-lightning-app/build/* /tmp/ROOT/WEB-INF/classes/static
 
 FROM tomcat:9-jdk8
 RUN rm /dev/random && ln -s /dev/urandom /dev/random && rm -rf ${CATALINA_HOME}/webapps/*
