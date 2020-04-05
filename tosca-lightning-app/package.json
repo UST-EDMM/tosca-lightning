@@ -14,8 +14,11 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-redux": "^7.1.7",
     "@types/redux-logger": "^3.0.7",
+    "@types/yup": "^0.26.34",
+    "formik": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
@@ -23,7 +26,8 @@
     "tslint": "^5.1.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.2.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "yup": "^0.28.3"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -3,10 +3,10 @@ import { indigo, teal } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
-    primary: indigo,
-    secondary: {
-      main: teal['400'],
+    primary: {
+      main: teal['400']
     },
+    secondary: indigo,
   },
 });
 
