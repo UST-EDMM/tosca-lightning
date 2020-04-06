@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import {
   Avatar, Divider, IconButton, Link, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Theme,
-  withStyles, WithStyles
+  Typography, withStyles, WithStyles
 } from '@material-ui/core';
 import GrainIcon from '@material-ui/icons/Grain';
 import LaunchIcon from '@material-ui/icons/Launch';
@@ -45,7 +45,7 @@ class ServiceTemplateList extends Component<Props> {
     return (
       <Section title="Models">
         <List>
-          {elements.length > 0 ? elements : "No TOSCA Light compliant models available."}
+          {elements.length > 0 ? elements : <Typography>No TOSCA Light compliant models available.</Typography>}
         </List>
       </Section>
     );

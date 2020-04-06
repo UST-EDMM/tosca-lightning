@@ -11,7 +11,7 @@ class DashboardPage extends Component {
       <React.Fragment>
         <div id="top"/>
         <MainNavigationContainer/>
-        <Container maxWidth='lg'>
+        <Container maxWidth="lg">
           <DashboardContainer/>
         </Container>
         <ScrollToTop selector="#top"/>
