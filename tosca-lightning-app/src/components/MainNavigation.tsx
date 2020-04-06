@@ -8,12 +8,13 @@ const styles = (theme: Theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    paddingTop: theme.spacing(1),
     flexGrow: 1,
   },
 });
 
 interface ComponentProps {
-  config: Config;
+  config?: Config;
 }
 
 type Props = ComponentProps & WithStyles<typeof styles>;
@@ -26,12 +27,12 @@ class MainNavigation extends Component<Props> {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            TOSCA Lightning
+            <img src="/logo.png" alt="TOSCA Lightning"/>
           </Typography>
-          <IconButton color="inherit" className={classes.button}
-                      component={Link} href={config.wineryUrl} target="_blank">
+          {config && <IconButton color="inherit" className={classes.button}
+                                 component={Link} href={config.wineryUrl} target="_blank">
             <AddIcon/>
-          </IconButton>
+          </IconButton>}
         </Toolbar>
       </AppBar>
     );

@@ -18,7 +18,7 @@ class MainNavigationContainer extends Component<Props> {
     const { config } = this.props;
     return (
       <React.Fragment>
-        {config && <MainNavigation config={config}/>}
+        <MainNavigation config={config}/>
       </React.Fragment>
     );
   }

@@ -21,7 +21,7 @@ type Props = StoreProps;
 class DashboardContainer extends Component<Props> {
 
   public render() {
-    const { serviceTemplates, config } = this.props;
+    const { serviceTemplates } = this.props;
     return (
       <React.Fragment>
         <Dashboard serviceTemplates={serviceTemplates}/>
