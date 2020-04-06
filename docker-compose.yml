@@ -4,6 +4,9 @@ services:
     build:
       context: .
     image: ustedmm/tosca-lightning:latest
+    environment:
+      WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
+      TRANSFORMATION_HOSTNAME: ${PUBLIC_HOSTNAME}
     ports:
       - '9000:8080'
   winery:
