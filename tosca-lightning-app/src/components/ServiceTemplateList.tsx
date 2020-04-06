@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import {
-  Avatar, Divider, IconButton, Link, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Theme,
-  Typography, withStyles, WithStyles
+  Avatar, Divider, IconButton, Link, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Typography
 } from '@material-ui/core';
 import GrainIcon from '@material-ui/icons/Grain';
 import LaunchIcon from '@material-ui/icons/Launch';
 import Section from './Section';
-import { Config } from '../models/Config';
-
-const styles = (theme: Theme) => ({});
 
 interface ComponentProps {
-  config: Config;
   serviceTemplates: ServiceTemplate[];
 }
 
-type Props = ComponentProps & WithStyles<typeof styles>;
+type Props = ComponentProps;
 
 class ServiceTemplateList extends Component<Props> {
 
   public render() {
-    const { config, serviceTemplates } = this.props;
+    const { serviceTemplates } = this.props;
     const elements = serviceTemplates.map((st: ServiceTemplate, index: number) => (
       <React.Fragment key={st.id}>
         <ListItem>
@@ -52,4 +47,4 @@ class ServiceTemplateList extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(ServiceTemplateList);
+export default ServiceTemplateList;

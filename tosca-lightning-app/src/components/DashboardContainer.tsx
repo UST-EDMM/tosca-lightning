@@ -24,7 +24,7 @@ class DashboardContainer extends Component<Props> {
     const { serviceTemplates, config } = this.props;
     return (
       <React.Fragment>
-        <Dashboard serviceTemplates={serviceTemplates} config={config}/>
+        <Dashboard serviceTemplates={serviceTemplates}/>
       </React.Fragment>
     );
   }
