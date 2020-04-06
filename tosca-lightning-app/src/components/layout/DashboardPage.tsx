@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
-import { AppBar, Button, Container, Theme, Toolbar, Typography, withStyles, WithStyles } from '@material-ui/core';
+import { Container } from '@material-ui/core';
+import MainNavigationContainer from '../MainNavigationContainer';
+import DashboardContainer from '../DashboardContainer';
 
-const styles = (theme: Theme) => ({
-  button: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-});
-
-type Props = WithStyles<typeof styles>;
-
-class DashboardPage extends Component<Props> {
+class DashboardPage extends Component {
 
   public render() {
-    const { classes } = this.props;
     return (
       <React.Fragment>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              TOSCA Lightning
-            </Typography>
-            <Button color="inherit" className={classes.button}>Login</Button>
-          </Toolbar>
-        </AppBar>
+        <MainNavigationContainer/>
         <Container maxWidth='lg'>
-          Test
+          <DashboardContainer/>
         </Container>
       </React.Fragment>);
   }
 }
 
-export default withStyles(styles)(DashboardPage);
+export default DashboardPage;
