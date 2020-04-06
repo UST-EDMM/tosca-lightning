@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "integration.winery-hostname",
+      "type": "java.lang.String",
+      "description": "Hostname of running Eclipse Winery instance."
+    },
+    {
+      "name": "integration.winery-port",
+      "type": "java.lang.String",
+      "description": "Port number of running Eclipse Winery instance."
+    },
+    {
+      "name": "integration.transformation-hostname",
+      "type": "java.lang.String",
+      "description": "Hostname of running EDMM Transformation Framework instance."
+    },
+    {
+      "name": "integration.transformation-port",
+      "type": "java.lang.String",
+      "description": "Port number of running EDMM Transformation Framework instance."
+    }
+  ]
+}
