@@ -7,4 +7,5 @@ export interface ServiceTemplate extends IdentifiableResource {
   namespace: string;
   qName: string;
   version: Version;
+  logoUrl: string;
 }

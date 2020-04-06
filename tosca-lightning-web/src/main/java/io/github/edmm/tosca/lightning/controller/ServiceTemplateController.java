@@ -1,6 +1,7 @@
 package io.github.edmm.tosca.lightning.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import io.github.edmm.tosca.lightning.model.ServiceTemplate;
 import io.github.edmm.tosca.lightning.service.ModelManager;
@@ -23,6 +24,8 @@ public class ServiceTemplateController {
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public List<ServiceTemplate> getServiceTemplates() {
-    return modelManager.getModels();
+    return modelManager.getModels().stream()
+      .peek(st -> st.setLogoUrl(modelManager.getLogoUrl(st)))
+      .collect(Collectors.toList());
   }
 }

@@ -19,9 +19,6 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(2),
     textTransform: 'uppercase' as const,
   },
-  body: {
-    padding: theme.spacing(2),
-  },
 });
 
 interface ComponentProps {
@@ -52,7 +49,7 @@ class Section extends Component<Props> {
     return (
       <Paper className={rootClassNames.join(' ')}>
         {title && <Typography className={classes.title}>{title}</Typography>}
-        <div className={classes.body}>
+        <div>
           {children}
         </div>
       </Paper>

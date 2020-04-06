@@ -15,6 +15,8 @@ public class ServiceTemplate {
   private QName qName;
   private Version version;
 
+  private String logoUrl;
+
   @JsonProperty("qName")
   public QName getQName() {
     return qName;

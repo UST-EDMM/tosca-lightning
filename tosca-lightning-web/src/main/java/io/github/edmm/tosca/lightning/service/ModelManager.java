@@ -1,5 +1,7 @@
 package io.github.edmm.tosca.lightning.service;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,6 +29,7 @@ public class ModelManager {
 
   private static final String MODELS_PATH = "/toscaLightModels";
   private static final String EXPORT_PATH_TEMPLATE = "/servicetemplates/%s/%s/?edmm&edmmUseAbsolutePaths";
+  private static final String LOGO_URL_TEMPLATE = "/servicetemplates/%s/%s/selfserviceportal/icon.jpg";
 
   private final RestTemplate restTemplate;
   private final String basePath;
@@ -80,5 +83,24 @@ public class ModelManager {
     }
 
     return Optional.ofNullable(response.getBody());
+  }
+
+  public String getLogoUrl(ServiceTemplate serviceTemplate) {
+    String logoUrl = basePath + String.format(LOGO_URL_TEMPLATE,
+      UriUtils.encode(UriUtils.encode(serviceTemplate.getNamespace(), "UTF-8"), "UTF-8"),
+      serviceTemplate.getId());
+    try {
+      URL url = new URL(logoUrl);
+      HttpURLConnection huc = (HttpURLConnection) url.openConnection();
+      int responseCode = huc.getResponseCode();
+      if (responseCode >= 200 && responseCode < 400) {
+        return logoUrl;
+      } else {
+        log.warn("Logo not available at URL: {}", logoUrl);
+      }
+    } catch (Exception e) {
+      log.error("Error checking logo URL: {}", e.getMessage(), e);
+    }
+    return null;
   }
 }
