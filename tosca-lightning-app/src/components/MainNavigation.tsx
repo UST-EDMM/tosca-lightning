@@ -28,8 +28,8 @@ class MainNavigation extends Component<Props> {
           <Typography variant="h6" className={classes.title}>
             TOSCA Lightning
           </Typography>
-          <IconButton color="inherit" className={classes.button} component={Link}
-                      href={config.wineryUrl} target="_blank">
+          <IconButton color="inherit" className={classes.button}
+                      component={Link} href={config.wineryUrl} target="_blank">
             <AddIcon/>
           </IconButton>
         </Toolbar>

@@ -25,7 +25,10 @@ public class ServiceTemplateController {
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public List<ServiceTemplate> getServiceTemplates() {
     return modelManager.getModels().stream()
-      .peek(st -> st.setLogoUrl(modelManager.getLogoUrl(st)))
+      .peek(st -> {
+        st.setLogoUrl(modelManager.getLogoUrl(st));
+        st.setTopologyModelerUrl(modelManager.getTopologyModelerUrl(st));
+      })
       .collect(Collectors.toList());
   }
 }

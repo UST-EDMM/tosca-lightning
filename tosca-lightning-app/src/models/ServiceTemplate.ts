@@ -8,4 +8,5 @@ export interface ServiceTemplate extends IdentifiableResource {
   qName: string;
   version: Version;
   logoUrl: string;
+  topologyModelerUrl: string;
 }

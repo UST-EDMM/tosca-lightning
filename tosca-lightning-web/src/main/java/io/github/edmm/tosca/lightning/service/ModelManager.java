@@ -27,16 +27,17 @@ import org.springframework.web.util.UriUtils;
 @Service
 public class ModelManager {
 
-  private static final String MODELS_PATH = "/toscaLightModels";
-  private static final String EXPORT_PATH_TEMPLATE = "/servicetemplates/%s/%s/?edmm&edmmUseAbsolutePaths";
-  private static final String LOGO_URL_TEMPLATE = "/servicetemplates/%s/%s/selfserviceportal/icon.jpg";
+  private static final String MODELS_PATH = "/winery/toscaLightModels";
+  private static final String EXPORT_PATH_TEMPLATE = "/winery/servicetemplates/%s/%s/?edmm&edmmUseAbsolutePaths";
+  private static final String LOGO_URL_TEMPLATE = "/winery/servicetemplates/%s/%s/selfserviceportal/icon.jpg";
+  private static final String TOPOLOGY_MODELER_URL_TEMPLATE = "/winery-topologymodeler/?repositoryURL=%s&uiURL=%s&ns=%s&id=%s";
 
   private final RestTemplate restTemplate;
   private final String basePath;
 
   public ModelManager(IntegrationProperties props) {
     this.restTemplate = new RestTemplate();
-    this.basePath = String.format("http://%s:%s/winery", props.getWineryHostname(), props.getWineryPort());
+    this.basePath = String.format("http://%s:%s", props.getWineryHostname(), props.getWineryPort());
   }
 
   public List<ServiceTemplate> getModels() {
@@ -63,14 +64,11 @@ public class ModelManager {
     }
 
     if (log.isDebugEnabled()) {
-      String debugValue = String.format(EXPORT_PATH_TEMPLATE,
-        UriUtils.encode(UriUtils.encode(serviceTemplate.getNamespace(), "UTF-8"), "UTF-8"),
-        serviceTemplate.getId());
+      String debugValue = String.format(EXPORT_PATH_TEMPLATE, doubleEncode(serviceTemplate.getNamespace()), serviceTemplate.getId());
       log.debug("Export Path: {}", basePath + debugValue);
     }
 
-    String exportUrl = basePath + String.format(EXPORT_PATH_TEMPLATE,
-      UriUtils.encode(serviceTemplate.getNamespace(), "UTF-8"), serviceTemplate.getId());
+    String exportUrl = basePath + String.format(EXPORT_PATH_TEMPLATE, encode(serviceTemplate.getNamespace()), serviceTemplate.getId());
 
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Collections.singletonList(MediaType.TEXT_XML));
@@ -86,9 +84,7 @@ public class ModelManager {
   }
 
   public String getLogoUrl(ServiceTemplate serviceTemplate) {
-    String logoUrl = basePath + String.format(LOGO_URL_TEMPLATE,
-      UriUtils.encode(UriUtils.encode(serviceTemplate.getNamespace(), "UTF-8"), "UTF-8"),
-      serviceTemplate.getId());
+    String logoUrl = basePath + String.format(LOGO_URL_TEMPLATE, doubleEncode(serviceTemplate.getNamespace()), serviceTemplate.getId());
     try {
       URL url = new URL(logoUrl);
       HttpURLConnection huc = (HttpURLConnection) url.openConnection();
@@ -102,5 +98,24 @@ public class ModelManager {
       log.error("Error checking logo URL: {}", e.getMessage(), e);
     }
     return null;
+  }
+
+  public String getTopologyModelerUrl(ServiceTemplate serviceTemplate) {
+    String url = basePath + String.format(TOPOLOGY_MODELER_URL_TEMPLATE,
+      encode(basePath + "/winery"),
+      encode(basePath + "/#/"),
+      encode(serviceTemplate.getNamespace()),
+      serviceTemplate.getId()
+    );
+    log.debug("Topology Modeler URL will be: {}", url);
+    return url;
+  }
+
+  private String encode(String value) {
+    return UriUtils.encode(value, "UTF-8");
+  }
+
+  private String doubleEncode(String value) {
+    return encode(encode(value));
   }
 }

@@ -16,6 +16,7 @@ public class ServiceTemplate {
   private Version version;
 
   private String logoUrl;
+  private String topologyModelerUrl;
 
   @JsonProperty("qName")
   public QName getQName() {
