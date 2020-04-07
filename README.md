@@ -5,8 +5,6 @@
 
 [**Welcome**](#welcome) &nbsp;|&nbsp; [**Quickstart**](#quickstart) &nbsp;|&nbsp; [**Get In Touch**](#get-in-touch) &nbsp;|&nbsp; [**Learn More**](#learn-more)
 
-
-
 ---
 
 ## Welcome
