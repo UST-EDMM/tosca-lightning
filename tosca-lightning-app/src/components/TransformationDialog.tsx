@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {
-  Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, FormControlLabel, FormLabel, Radio,
-  RadioGroup, Theme, WithStyles, withStyles
+  Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, FormControlLabel,
+  FormLabel, Radio, RadioGroup, Theme, WithStyles, withStyles
 } from '@material-ui/core';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import { Plugin } from '../models/Plugin';
+import { backendService } from '../service/backend';
+import { TransformResponse } from '../models/TransformResponse';
 
 const styles = (theme: Theme) => ({
   group: {
@@ -12,7 +14,15 @@ const styles = (theme: Theme) => ({
   },
   item: {
     width: '33%',
-  }
+  },
+  buttonProgress: {
+    color: theme.palette.secondary.main,
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12,
+  },
 });
 
 interface ComponentProps {
@@ -20,10 +30,11 @@ interface ComponentProps {
   serviceTemplate: ServiceTemplate;
   plugins: Plugin[];
   onClose(): void;
-  onTransformation(target: String, serviceTemplate: ServiceTemplate): void;
 }
 
 interface State {
+  isLoading: boolean;
+  transformationResponse?: TransformResponse;
   value: string;
 }
 
@@ -34,13 +45,14 @@ class TransformationDialog extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      isLoading: false,
       value: '',
     }
   }
 
   public render() {
-    const { serviceTemplate, plugins, classes, open, onClose, onTransformation } = this.props;
-    const { value } = this.state;
+    const { plugins, classes, open, onClose } = this.props;
+    const { isLoading, value, transformationResponse } = this.state;
     const elements = plugins.map((plugin: Plugin, index: number) => (
       <React.Fragment key={index}>
         <Box className={classes.item}>
@@ -68,17 +80,33 @@ class TransformationDialog extends Component<Props, State> {
             Close
           </Button>
           <Button color="secondary" variant="contained"
-                  disabled={value === ''} onClick={() => onTransformation(value, serviceTemplate)}>
+                  disabled={isLoading || value === ''} onClick={this.handleTransformation}>
             Transform
+            {isLoading && <CircularProgress size={24} className={classes.buttonProgress}/>}
           </Button>
+          {transformationResponse &&
+          <Button color="secondary" href={transformationResponse?.downloadUrl} target="_blank">
+            Download
+          </Button>}
         </DialogActions>
       </Dialog>
     );
   }
 
+  private handleTransformation = async () => {
+    const { serviceTemplate } = this.props;
+    const { value } = this.state;
+    this.setState({ isLoading: true });
+    const response = await backendService.transformServiceTemplate(value, serviceTemplate);
+    if (response && response.downloadUrl) {
+      this.setState({ transformationResponse: response })
+    }
+    this.setState({ isLoading: false });
+  };
+
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = (event.target as HTMLInputElement).value;
-    this.setState({ value });
+    this.setState({ value, transformationResponse: undefined });
   };
 }
 

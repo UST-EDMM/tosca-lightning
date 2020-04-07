@@ -25,9 +25,7 @@ class ServiceTemplateListContainer extends Component<Props> {
   public render() {
     const { serviceTemplates, plugins, isLoading } = this.props;
     return (
-      <React.Fragment>
-        <ServiceTemplateList serviceTemplates={serviceTemplates} plugins={plugins} isLoading={isLoading}/>
-      </React.Fragment>
+      <ServiceTemplateList serviceTemplates={serviceTemplates} plugins={plugins} isLoading={isLoading}/>
     );
   }
 

@@ -38,7 +38,7 @@ class ServiceTemplateList extends Component<Props, State> {
     const elements = serviceTemplates.map((st: ServiceTemplate, index: number) => (
       <React.Fragment key={st.id}>
         <TransformationDialog serviceTemplate={st} plugins={plugins} open={dialogOpen[st.id] ?? false}
-                              onClose={() => this.handleDialogClose(st)} onTransformation={() => console.log('do it')}/>
+                              onClose={() => this.handleDialogClose(st)}/>
         <ListItem>
           <ListItemAvatar>
             <Avatar src={st.logoUrl} variant="rounded">
