@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import MainNavigationContainer from '../MainNavigationContainer';
-import DashboardContainer from '../DashboardContainer';
+import ServiceTemplateListContainer from '../ServiceTemplateListContainer';
 import ScrollToTop from '../ScrollToTop';
 
 class DashboardPage extends Component {
@@ -12,7 +12,7 @@ class DashboardPage extends Component {
         <div id="top"/>
         <MainNavigationContainer/>
         <Container maxWidth="lg">
-          <DashboardContainer/>
+          <ServiceTemplateListContainer/>
         </Container>
         <ScrollToTop selector="#top"/>
       </React.Fragment>);

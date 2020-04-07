@@ -4,27 +4,29 @@ import { connect } from 'react-redux';
 import { getPluginsAction, getServiceTemplatesAction } from '../store/actions/page';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import { ResourceMap } from '../lib/resourceSupport';
-import Dashboard from './Dashboard';
 import { Config } from '../models/Config';
+import { Plugin } from '../models/Plugin';
+import ServiceTemplateList from './ServiceTemplateList';
 
 interface StoreProps {
   plugins: Plugin[];
   serviceTemplates: ServiceTemplate[];
   serviceTemplatesById: ResourceMap<ServiceTemplate>;
   config: Config;
+  isLoading: boolean;
   getPlugins(): void;
   getServiceTemplates(): void;
 }
 
 type Props = StoreProps;
 
-class DashboardContainer extends Component<Props> {
+class ServiceTemplateListContainer extends Component<Props> {
 
   public render() {
-    const { serviceTemplates } = this.props;
+    const { serviceTemplates, plugins, isLoading } = this.props;
     return (
       <React.Fragment>
-        <Dashboard serviceTemplates={serviceTemplates}/>
+        <ServiceTemplateList serviceTemplates={serviceTemplates} plugins={plugins} isLoading={isLoading}/>
       </React.Fragment>
     );
   }
@@ -40,6 +42,7 @@ const mapStateToProps = (state: any) => ({
   serviceTemplates: state.page.serviceTemplates,
   serviceTemplatesById: state.page.serviceTemplatesById,
   config: state.page.config,
+  isLoading: state.page.isLoading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -47,4 +50,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   getServiceTemplates: getServiceTemplatesAction(dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceTemplateListContainer);

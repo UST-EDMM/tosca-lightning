@@ -23,6 +23,7 @@
     "jsx-boolean-value": [
       "never"
     ],
-    "ordered-imports": false
+    "ordered-imports": false,
+    "jsx-no-lambda": false
   }
 }

@@ -1,6 +1,7 @@
 import config from '../config';
 import { fetchOrThrow } from './fetch';
 import { Config } from '../models/Config';
+import { Plugin } from '../models/Plugin';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 
 const getConfig = async (): Promise<Config> => {

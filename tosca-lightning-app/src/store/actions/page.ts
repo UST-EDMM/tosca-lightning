@@ -6,6 +6,7 @@ import {
 } from '../reducers/page';
 import { backendService } from '../../service/backend';
 import { Config } from '../../models/Config';
+import { Plugin } from '../../models/Plugin';
 import { ServiceTemplate } from '../../models/ServiceTemplate';
 
 export const getConfigAction = (dispatch: Dispatch) => {

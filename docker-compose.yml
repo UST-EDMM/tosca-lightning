@@ -1,15 +1,16 @@
 version: '3'
 services:
-  tosca-lightning:
-    build:
-      context: .
-    image: ustedmm/tosca-lightning:latest
-    environment:
-      WINERY_HOSTNAME: winery
-      WINERY_PUBLIC_HOSTNAME: ${PUBLIC_HOSTNAME}
-      TRANSFORMATION_HOSTNAME: transformation-framework
-    ports:
-      - '9000:8080'
+#  tosca-lightning:
+#    build:
+#      context: .
+#    image: ustedmm/tosca-lightning:latest
+#    environment:
+#      WINERY_HOSTNAME: winery
+#      WINERY_PUBLIC_HOSTNAME: ${PUBLIC_HOSTNAME}
+#      TRANSFORMATION_HOSTNAME: transformation-framework
+#      TRANSFORMATION_PUBLIC_HOSTNAME: ${PUBLIC_HOSTNAME}
+#    ports:
+#      - '9000:8080'
   winery:
     image: opentosca/winery:latest
     environment:
@@ -22,9 +23,9 @@ services:
       - ./modeling-repository:/var/opentosca/repository
     ports:
       - '8080:8080'
-  transformation-framework:
-    image: ustedmm/transformation-framework:latest
-    volumes:
-      - ./modeling-repository:/var/repository
-    ports:
-      - '5000:5000'
+#  transformation-framework:
+#    image: ustedmm/transformation-framework:latest
+#    volumes:
+#      - ./modeling-repository:/var/repository
+#    ports:
+#      - '5000:5000'

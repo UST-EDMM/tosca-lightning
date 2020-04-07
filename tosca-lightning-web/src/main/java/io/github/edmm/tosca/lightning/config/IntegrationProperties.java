@@ -13,5 +13,6 @@ public class IntegrationProperties {
   private String wineryPublicHostname;
   private Integer wineryPort;
   private String transformationHostname;
+  private String transformationPublicHostname;
   private Integer transformationPort;
 }

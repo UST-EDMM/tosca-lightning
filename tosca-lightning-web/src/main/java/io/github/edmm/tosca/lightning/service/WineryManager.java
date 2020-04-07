@@ -28,7 +28,7 @@ import org.springframework.web.util.UriUtils;
 public class WineryManager {
 
   private static final String MODELS_PATH = "/winery/toscaLightModels";
-  private static final String EXPORT_PATH_TEMPLATE = "/winery/servicetemplates/%s/%s/?edmm&edmmUseAbsolutePaths";
+  private static final String EXPORT_PATH_TEMPLATE = "/winery/servicetemplates/%s/%s/?edmm";
   private static final String LOGO_URL_TEMPLATE = "/winery/servicetemplates/%s/%s/selfserviceportal/icon.jpg";
   private static final String TOPOLOGY_MODELER_URL_TEMPLATE = "/winery-topologymodeler/?repositoryURL=%s&uiURL=%s&ns=%s&id=%s";
 
@@ -43,7 +43,7 @@ public class WineryManager {
   }
 
   public List<ServiceTemplate> getModels() {
-    log.info("Retrieve model data from Eclipse Winery...");
+    log.info("Retrieve model data from Eclipse Winery");
     ServiceTemplate[] response = restTemplate.getForObject(restBasePath + MODELS_PATH, ServiceTemplate[].class);
     if (response == null) {
       return new ArrayList<>();
@@ -57,7 +57,7 @@ public class WineryManager {
   }
 
   public Optional<String> getModelAsYaml(String id) {
-    log.info("Request EDMM YAML model for Service Template \"{}\"...", id);
+    log.info("Request EDMM YAML model for Service Template \"{}\"", id);
     Map<String, ServiceTemplate> models = getModelsAsMap();
     ServiceTemplate serviceTemplate = models.get(id);
     if (serviceTemplate == null) {

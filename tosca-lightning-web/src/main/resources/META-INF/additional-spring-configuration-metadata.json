@@ -21,6 +21,11 @@
       "description": "Hostname of running EDMM Transformation Framework instance."
     },
     {
+      "name": "integration.transformation-public-hostname",
+      "type": "java.lang.String",
+      "description": "Public hostname of running EDMM Transformation Framework instance."
+    },
+    {
       "name": "integration.transformation-port",
       "type": "java.lang.String",
       "description": "Port number of running EDMM Transformation Framework instance."

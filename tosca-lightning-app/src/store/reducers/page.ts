@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux';
 import { Message } from '../../models/Message';
 import { Config } from '../../models/Config';
+import { Plugin } from '../../models/Plugin';
 import { createResourceMap, ResourceMap } from '../../lib/resourceSupport';
 import { ServiceTemplate } from '../../models/ServiceTemplate';
 
