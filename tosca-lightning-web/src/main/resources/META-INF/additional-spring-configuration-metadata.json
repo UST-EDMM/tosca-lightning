@@ -6,6 +6,11 @@
       "description": "Hostname of running Eclipse Winery instance."
     },
     {
+      "name": "integration.winery-public-hostname",
+      "type": "java.lang.String",
+      "description": "Public hostname of running Eclipse Winery instance."
+    },
+    {
       "name": "integration.winery-port",
       "type": "java.lang.String",
       "description": "Port number of running Eclipse Winery instance."

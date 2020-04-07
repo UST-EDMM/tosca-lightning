@@ -14,7 +14,7 @@ public class Configuration {
 
   public static Configuration of(IntegrationProperties props) {
     return Configuration.builder()
-      .wineryUrl(String.format("http://%s:%s", props.getWineryHostname(), props.getWineryPort()))
+      .wineryUrl(String.format("http://%s:%s", props.getWineryPublicHostname(), props.getWineryPort()))
       .build();
   }
 }

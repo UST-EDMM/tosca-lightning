@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class IntegrationProperties {
 
   private String wineryHostname;
+  private String wineryPublicHostname;
   private Integer wineryPort;
   private String transformationHostname;
   private Integer transformationPort;

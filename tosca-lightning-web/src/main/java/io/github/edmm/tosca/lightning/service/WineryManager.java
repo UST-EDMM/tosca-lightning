@@ -25,7 +25,7 @@ import org.springframework.web.util.UriUtils;
 
 @Slf4j
 @Service
-public class ModelManager {
+public class WineryManager {
 
   private static final String MODELS_PATH = "/winery/toscaLightModels";
   private static final String EXPORT_PATH_TEMPLATE = "/winery/servicetemplates/%s/%s/?edmm&edmmUseAbsolutePaths";
@@ -33,16 +33,18 @@ public class ModelManager {
   private static final String TOPOLOGY_MODELER_URL_TEMPLATE = "/winery-topologymodeler/?repositoryURL=%s&uiURL=%s&ns=%s&id=%s";
 
   private final RestTemplate restTemplate;
-  private final String basePath;
+  private final String restBasePath;
+  private final String publicBasePath;
 
-  public ModelManager(IntegrationProperties props) {
+  public WineryManager(IntegrationProperties props) {
     this.restTemplate = new RestTemplate();
-    this.basePath = String.format("http://%s:%s", props.getWineryHostname(), props.getWineryPort());
+    this.restBasePath = String.format("http://%s:%s", props.getWineryHostname(), props.getWineryPort());
+    this.publicBasePath = String.format("http://%s:%s", props.getWineryPublicHostname(), props.getWineryPort());
   }
 
   public List<ServiceTemplate> getModels() {
     log.info("Retrieve model data from Eclipse Winery...");
-    ServiceTemplate[] response = restTemplate.getForObject(basePath + MODELS_PATH, ServiceTemplate[].class);
+    ServiceTemplate[] response = restTemplate.getForObject(restBasePath + MODELS_PATH, ServiceTemplate[].class);
     if (response == null) {
       return new ArrayList<>();
     }
@@ -65,10 +67,10 @@ public class ModelManager {
 
     if (log.isDebugEnabled()) {
       String debugValue = String.format(EXPORT_PATH_TEMPLATE, doubleEncode(serviceTemplate.getNamespace()), serviceTemplate.getId());
-      log.debug("Export Path: {}", basePath + debugValue);
+      log.debug("Export Path: {}", restBasePath + debugValue);
     }
 
-    String exportUrl = basePath + String.format(EXPORT_PATH_TEMPLATE, encode(serviceTemplate.getNamespace()), serviceTemplate.getId());
+    String exportUrl = restBasePath + String.format(EXPORT_PATH_TEMPLATE, encode(serviceTemplate.getNamespace()), serviceTemplate.getId());
 
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Collections.singletonList(MediaType.TEXT_XML));
@@ -84,26 +86,24 @@ public class ModelManager {
   }
 
   public String getLogoUrl(ServiceTemplate serviceTemplate) {
-    String logoUrl = basePath + String.format(LOGO_URL_TEMPLATE, doubleEncode(serviceTemplate.getNamespace()), serviceTemplate.getId());
+    String logoUrl = publicBasePath + String.format(LOGO_URL_TEMPLATE, doubleEncode(serviceTemplate.getNamespace()), serviceTemplate.getId());
     try {
       URL url = new URL(logoUrl);
       HttpURLConnection huc = (HttpURLConnection) url.openConnection();
       int responseCode = huc.getResponseCode();
-      if (responseCode >= 200 && responseCode < 400) {
-        return logoUrl;
-      } else {
+      if (responseCode < 200 || responseCode >= 400) {
         log.warn("Logo not available at URL: {}", logoUrl);
       }
     } catch (Exception e) {
       log.error("Error checking logo URL: {}", e.getMessage(), e);
     }
-    return null;
+    return logoUrl;
   }
 
   public String getTopologyModelerUrl(ServiceTemplate serviceTemplate) {
-    String url = basePath + String.format(TOPOLOGY_MODELER_URL_TEMPLATE,
-      encode(basePath + "/winery"),
-      encode(basePath + "/#/"),
+    String url = publicBasePath + String.format(TOPOLOGY_MODELER_URL_TEMPLATE,
+      encode(publicBasePath + "/winery"),
+      encode(publicBasePath + "/#/"),
       encode(serviceTemplate.getNamespace()),
       serviceTemplate.getId()
     );
