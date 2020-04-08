@@ -23,23 +23,28 @@ Moreover, EDMM enacts the transformation from a common metamodel into technology
 Therefore, we published the *TOSCA Light modeling profile* as a reduced subset of TOSCA modeling constructs which is compliant with EDMM.
 By using the TOSCA Lightning toolchain, practitioners are able to model their applications in an abstract and technology-agnostic modeling language syntax and can still use their deployment automation technology of choice for execution.
 
-The toolchain consists of the [TOSCA Lightning Modeling Environment](https://github.com/eclipse/winery) and the [EDMM Transformation Framework](https://github.com/UST-EDMM/transformation-framework).
+The toolchain consists of four main components:
+(i) the TOSCA Lightning User Interface,
+(ii) the TOSCA Lightning API,
+(iii) [Eclipse Winery](https://github.com/eclipse/winery), and
+(iv) the [EDMM Transformation Framework](https://github.com/UST-EDMM/transformation-framework).
 
-#### TOSCA Lightning Modeling Environment
+![](docs/toolchain.png)
 
-The TOSCA Lightning Modeling Environment is a web-based environment to graphically model TOSCA-based application topologies.
+TOSCA Lightning integrates Eclipse Winery as its modeling environment and the EDMM Transformation Framework for transformation.
+
+Eclipse Winery is a web-based environment to graphically model TOSCA-based application topologies and can be launched thru the TOSCA Lightning User Interface.
 It provides a *Management Interface* to manage all TOSCA related entities, such as node types, their property definitions, operations, and artifacts.
 Further, it provides a *Topology Modeler* component which enables the graphical composition of the application and its desired target state to be deployed.
 
-The TOSCA Lightning Modeling Environment checks the TOSCA Light compliance when a user opens a TOSCA service template.
-Each created or imported TOSCA model may be flagged as TOSCA Light compliant by showing a respective TOSCA Light logo at the top.
-The user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
-
-#### EDMM Transformation Framework
+The modeling environment checks the TOSCA Light compliance and its API is able to return a list of such compliant TOSCA service templates.
+Each created or imported TOSCA model may be returned by this API.
+Inside Eclipse Winery, the user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
 
 The EDMM Transformation Framework provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
-Together with the model, a user selects a certain target deployment technology and the framework generates the respective files and templates.
-However, the EDMM Transformation Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
+Using the TOSCA Lightning User Interface, a user selects a certain target deployment technology and is able to trigger the transformation for a TOSCA Light model.
+The TOSCA Lightning API utilizes the EDMM Transformation Framework such that the required files and templates are generated.
+The EDMM Transformation Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
 
 
 
@@ -49,10 +54,10 @@ For a quick start, we outline a step-by-step guide to model, transform, and depl
 For the sake of demonstration, we use the Spring PetClinic application which demonstrates the use of the Spring Boot framework.
 It's a web application and runs on a Tomcat web server while connecting to a MySQL database to store its data.
 
-The model is created using the TOSCA Lightning Modeling Environment.
+The model is created using the Eclipse Winery modeling environment and can be launch from the TOSCA Lightning user interface.
 Notably, the model is not specifically composed for Kubernetes as the target runtime environment.
 It is rather modeled in a generic, component-based manner.
-Afterwards, the resulting model is translated using the EDMM Transformation Framework CLI to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
+Afterwards, the resulting model is translated using the EDMM Transformation Framework to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
 
 ### Pre-requisites
 
@@ -66,76 +71,39 @@ git clone https://github.com/UST-EDMM/tosca-lightning
 cd tosca-lightning
 ```
 
-### Install the EDMM Transformation Framework CLI
-
-Download the latest release:
-
-```
-curl -LSs -o edmm.zip https://github.com/UST-EDMM/transformation-framework/releases/download/v1.0.5/edmm.zip
-```
-
-Unzip archive to current directory:
-
-```
-unzip edmm.zip -d .
-```
-
-### Run the TOSCA Lightning Modeling Environment
+### Run the TOSCA Lightning User Interface
 
 ```
 docker-compose pull
 docker-compose up -d
 ```
 
-Open a browser a go to <http://localhost:8080> to launch the modeling environment.
+Open a browser a go to <http://localhost:9000>.
 
-The TOSCA Lightning Modeling Environment is started in the *Service Template List* view.
+The TOSCA Lightning user interface is started and presents a list of available TOSCA Light models.
 For the Quickstart, we prepared a TOSCA deployment model of the Spring PetClinic application.
 
-By clicking on the *PetClinic* Service Template, you enter the *Service Template Detail* view.
+![](docs/quickstart/01-dashboard.png)
 
-![](docs/quickstart/01-petclinic.png)
-
-In the *Topology Template* submenu, you can open the *Topology Editor*.
+By clicking on the edit button of the *PetClinic* model, you can launch the Topology Editor to graphically view and compose the application structure.
 The Topology Editor is launched in a separate window.
-
-In this view, the overall structure of the application is modeled.
 Further, the Topology Editor is used to set any property value which will be used as configuration for the instantiation of the component.
 
 ![](docs/quickstart/02-topology.png)
 
 The Quickstart repository comes already with a set of *built-in modeling types* that can be used to model new applications.
-New Service Templates can be added where applications can be composed using the built-in types on the left hand side of the Topology Editor.
+New TOSCA Service Templates can be added where applications can be composed using the built-in types on the left hand side of the Topology Editor.
 However, these types follow the proposed normative types by the TOSCA Simple Profile standard.
 In addition, new types can be added using the *Node Type* view of the TOSCA Light Modeling Environment.
 
-### Export the PetClinic Application
+### Transform PetClinic Application to Kubernetes 
 
-You can now go back to the *Service Template Detail* view of the PetClinic application.
+We utilize the EDMM Transformation Framework to translate the generated model into files and artifacts required by Kubernetes for deployment.
+In the TOSCA Lightning user interface, click on the transformation button of the PetClinic application.
+In the presented pop-up, choose *Kubernetes* and click *Transform*.
+After the transformation was successful, you can download an archive containing all required files and artifacts to deploy the PetClinic application to Kubernetes.
 
-Click the *Export* button and execute the *Export to EDMM* action.
-The result is opened in a new browser window.
-
-Right-click *Save as...* and save the YAML model relative to your `tosca-light` repository, e.g., to `petclinic.yml`.
-
-### Transform to Kubernetes
-
-Now we can use the EDMM Transformation Framework CLI to translate the generated model into files and artifacts required by Kubernetes for deployment.
-
-> **Workaround: Correct file specs in `petclinic.yml`**
->
-> The TOSCA Lightning Modeling Environment prototype at this stage generates absolute path based on the container's volume mount.
-> To have relative file specs, relative to your `tosca-lightning` repository, you can execute the following command to fix this:
->
-> ```
-> sed -i 's/\/var\/opentosca\/repository/\.\/modeling-repository/' petclinic.yml
-> ```
-
-Finally, we can execute the transformation to Kubernetes using the following command:
-
-```
-./edmm transform kubernetes ./petclinic.yml
-```
+![](docs/quickstart/03-transform.png)
 
 ### Run the PetClinic Application on Kubernetes
 
@@ -153,18 +121,19 @@ Finally, we can execute the transformation to Kubernetes using the following com
 > minikube docker-env | Invoke-Expression
 > ```
 
+Extract the downloaded archive, open a command-prompt, and change to the respective directory.  
 Build Docker images on your Kubernetes cluster:
 
 ```
-docker build -t db ./kubernetes/db
-docker build -t pet-clinic ./kubernetes/pet_clinic
+docker build -t db ./db
+docker build -t pet-clinic ./pet_clinic
 ```
 
 Apply the generated Kubernetes configuration:
 
 ```
-kubectl apply -f ./kubernetes/db/db-deployment.yaml -f ./kubernetes/db/db-service.yaml
-kubectl apply -f ./kubernetes/pet_clinic/pet-clinic-deployment.yaml -f ./kubernetes/pet_clinic/pet-clinic-service.yaml
+kubectl apply -f ./db/db-deployment.yaml -f ./db/db-service.yaml
+kubectl apply -f ./pet_clinic/pet-clinic-deployment.yaml -f ./pet_clinic/pet-clinic-service.yaml
 ```
 
 Launch the PetClinic application:
@@ -204,9 +173,3 @@ Just get in touch with us below:
 * Michael Wurster, Uwe Breitenbücher, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
   **TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies**.
   In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020 **(To Appear)**
-
-
-
-## Architecture and Toolchain
-
-![Toolchain](docs/toolchain.png)
