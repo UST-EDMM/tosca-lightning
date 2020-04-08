@@ -78,9 +78,9 @@ docker-compose pull
 docker-compose up -d
 ```
 
-Open a browser a go to <http://localhost:9000>.
+Open a browser a navigate to <http://localhost:9000>.
 
-The TOSCA Lightning user interface is started and presents a list of available TOSCA Light models.
+The TOSCA Lightning User Interface is started and presents a list of available TOSCA Light models.
 For the Quickstart, we prepared a TOSCA deployment model of the Spring PetClinic application.
 
 > ![](docs/quickstart/01-dashboard.png)
