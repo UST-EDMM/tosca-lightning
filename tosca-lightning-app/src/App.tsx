@@ -4,6 +4,8 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import store from './store';
 import DashboardPage from './components/layout/DashboardPage';
+import Footer from './components/layout/Footer';
+import MessageContainer from './components/MessageContainer';
 
 class App extends Component {
   public render() {
@@ -12,6 +14,8 @@ class App extends Component {
         <CssBaseline/>
         <Provider store={store}>
           <DashboardPage/>
+          <Footer/>
+          <MessageContainer/>
         </Provider>
       </ThemeProvider>
     );

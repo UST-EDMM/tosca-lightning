@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { getPluginsAction, getServiceTemplatesAction } from '../store/actions/page';
+import { changeMessageAction, getPluginsAction, getServiceTemplatesAction } from '../store/actions/page';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import { ResourceMap } from '../lib/resourceSupport';
 import { Config } from '../models/Config';
 import { Plugin } from '../models/Plugin';
 import ServiceTemplateList from './ServiceTemplateList';
+import { MessageVariant } from '../models/Message';
 
 interface StoreProps {
   plugins: Plugin[];
@@ -16,6 +17,7 @@ interface StoreProps {
   isLoading: boolean;
   getPlugins(): void;
   getServiceTemplates(): void;
+  changeMessage(variant: MessageVariant, text: string): void;
 }
 
 type Props = StoreProps;
@@ -23,9 +25,10 @@ type Props = StoreProps;
 class ServiceTemplateListContainer extends Component<Props> {
 
   public render() {
-    const { serviceTemplates, plugins, isLoading } = this.props;
+    const { serviceTemplates, plugins, isLoading, changeMessage } = this.props;
     return (
-      <ServiceTemplateList serviceTemplates={serviceTemplates} plugins={plugins} isLoading={isLoading}/>
+      <ServiceTemplateList serviceTemplates={serviceTemplates} plugins={plugins} isLoading={isLoading}
+                           changeMessage={changeMessage}/>
     );
   }
 
@@ -46,6 +49,7 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   getPlugins: getPluginsAction(dispatch),
   getServiceTemplates: getServiceTemplatesAction(dispatch),
+  changeMessage: changeMessageAction(dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServiceTemplateListContainer);

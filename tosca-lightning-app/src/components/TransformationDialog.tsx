@@ -30,6 +30,7 @@ interface ComponentProps {
   serviceTemplate: ServiceTemplate;
   plugins: Plugin[];
   onClose(): void;
+  onDownloadReady(): void;
 }
 
 interface State {
@@ -79,11 +80,12 @@ class TransformationDialog extends Component<Props, State> {
                   onClick={onClose}>
             Close
           </Button>
+          {!transformationResponse &&
           <Button color="secondary" variant="contained"
                   disabled={isLoading || value === ''} onClick={this.handleTransformation}>
             Transform
             {isLoading && <CircularProgress size={24} className={classes.buttonProgress}/>}
-          </Button>
+          </Button>}
           {transformationResponse &&
           <Button color="secondary" href={transformationResponse?.downloadUrl} target="_blank">
             Download
@@ -94,7 +96,7 @@ class TransformationDialog extends Component<Props, State> {
   }
 
   private handleTransformation = async () => {
-    const { serviceTemplate } = this.props;
+    const { serviceTemplate, onDownloadReady } = this.props;
     const { value } = this.state;
     this.setState({ isLoading: true });
     const response = await backendService.transformServiceTemplate(value, serviceTemplate);
@@ -102,6 +104,7 @@ class TransformationDialog extends Component<Props, State> {
       this.setState({ transformationResponse: response })
     }
     this.setState({ isLoading: false });
+    onDownloadReady();
   };
 
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

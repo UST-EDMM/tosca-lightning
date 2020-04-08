@@ -10,11 +10,13 @@ import InputIcon from '@material-ui/icons/Input';
 import Section from './Section';
 import TransformationDialog from './TransformationDialog';
 import { Plugin } from '../models/Plugin';
+import { MessageVariant } from '../models/Message';
 
 interface ComponentProps {
   serviceTemplates: ServiceTemplate[];
   plugins: Plugin[];
   isLoading: boolean;
+  changeMessage(variant: MessageVariant, text: string): void;
 }
 
 interface State {
@@ -38,7 +40,8 @@ class ServiceTemplateList extends Component<Props, State> {
     const elements = serviceTemplates.map((st: ServiceTemplate, index: number) => (
       <React.Fragment key={st.id}>
         <TransformationDialog serviceTemplate={st} plugins={plugins} open={dialogOpen[st.id] ?? false}
-                              onClose={() => this.handleDialogClose(st)}/>
+                              onClose={() => this.handleDialogClose(st)}
+                              onDownloadReady={this.handleDownloadReady}/>
         <ListItem>
           <ListItemAvatar>
             <Avatar src={st.logoUrl} variant="rounded">
@@ -83,6 +86,10 @@ class ServiceTemplateList extends Component<Props, State> {
     const dialogOpen = { ...this.state.dialogOpen, [st.id]: false };
     this.setState({ dialogOpen });
   };
+
+  private handleDownloadReady = () => {
+    this.props.changeMessage('success', 'Transformation successfully completed. You can now download the result.');
+  }
 }
 
 export default ServiceTemplateList;

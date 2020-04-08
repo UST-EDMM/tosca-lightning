@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { AppBar, IconButton, Link, Theme, Toolbar, Typography, withStyles, WithStyles } from '@material-ui/core';
+import {
+  AppBar, IconButton, Link, Theme, Toolbar, Tooltip, Typography, withStyles, WithStyles
+} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import { Config } from '../models/Config';
 
@@ -29,10 +31,13 @@ class MainNavigation extends Component<Props> {
           <Typography variant="h6" className={classes.title}>
             <img src="/logo.png" alt="TOSCA Lightning"/>
           </Typography>
-          {config && <IconButton color="inherit" className={classes.button}
-                                 component={Link} href={config.wineryUrl} target="_blank">
-            <AddIcon/>
-          </IconButton>}
+          {config &&
+          <Tooltip title="Create new TOSCA Light models">
+            <IconButton color="inherit" className={classes.button}
+                        component={Link} href={config.wineryUrl} target="_blank">
+              <AddIcon/>
+            </IconButton>
+          </Tooltip>}
         </Toolbar>
       </AppBar>
     );
