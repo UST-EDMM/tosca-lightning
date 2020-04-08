@@ -31,7 +31,7 @@ The toolchain consists of four main components:
 
 ![](docs/toolchain.png)
 
-TOSCA Lightning integrates Eclipse Winery as its modeling environment and the EDMM Transformation Framework for transformation.
+TOSCA Lightning integrates Eclipse Winery as its modeling environment and the EDMM Transformation Framework for transformation (due to the fact that TOSCA Light is mappable to EDMM; we also use EDMM as the transfer format).
 
 Eclipse Winery is a web-based environment to graphically model TOSCA-based application topologies and can be launched thru the TOSCA Lightning User Interface.
 It provides a *Management Interface* to manage all TOSCA related entities, such as node types, their property definitions, operations, and artifacts.
