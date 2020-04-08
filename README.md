@@ -83,13 +83,13 @@ Open a browser a go to <http://localhost:9000>.
 The TOSCA Lightning user interface is started and presents a list of available TOSCA Light models.
 For the Quickstart, we prepared a TOSCA deployment model of the Spring PetClinic application.
 
-![](docs/quickstart/01-dashboard.png)
+> ![](docs/quickstart/01-dashboard.png)
 
 By clicking on the edit button of the *PetClinic* model, you can launch the Topology Editor to graphically view and compose the application structure.
 The Topology Editor is launched in a separate window.
 Further, the Topology Editor is used to set any property value which will be used as configuration for the instantiation of the component.
 
-![](docs/quickstart/02-topology.png)
+> ![](docs/quickstart/02-topology.png)
 
 The Quickstart repository comes already with a set of *built-in modeling types* that can be used to model new applications.
 New TOSCA Service Templates can be added where applications can be composed using the built-in types on the left hand side of the Topology Editor.
@@ -103,7 +103,7 @@ In the TOSCA Lightning user interface, click on the transformation button of the
 In the presented pop-up, choose *Kubernetes* and click *Transform*.
 After the transformation was successful, you can download an archive containing all required files and artifacts to deploy the PetClinic application to Kubernetes.
 
-![](docs/quickstart/03-transform.png)
+> ![](docs/quickstart/03-transform.png)
 
 ### Run the PetClinic Application on Kubernetes
 
