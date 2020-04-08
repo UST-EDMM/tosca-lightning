@@ -42,9 +42,10 @@ Each created or imported TOSCA model may be returned by this API.
 Inside Eclipse Winery, the user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
 
 The EDMM Transformation Framework provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
-Using the TOSCA Lightning User Interface, a user selects a certain target deployment technology and is able to trigger the transformation for a TOSCA Light model.
+Using the TOSCA Lightning User Interface, a user selects a certain target deployment technology and is able to trigger the transformation.
 The TOSCA Lightning API utilizes the EDMM Transformation Framework such that the required files and templates are generated.
 The EDMM Transformation Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
+The transformation result can be downloaded thru the TOSCA Lightning User Interface.
 
 
 
