@@ -26,7 +26,7 @@ By using the TOSCA Lightning toolchain, practitioners are able to model their ap
 The toolchain consists of four main components:
 (i) the TOSCA Lightning User Interface,
 (ii) the TOSCA Lightning API,
-(iii) [Eclipse Winery](https://github.com/eclipse/winery), and
+(iii) the Modeling Tool [Eclipse Winery](https://github.com/eclipse/winery), and
 (iv) the [EDMM Transformation Framework](https://github.com/UST-EDMM/transformation-framework).
 
 ![](docs/toolchain.png)
@@ -46,6 +46,12 @@ Using the TOSCA Lightning User Interface, a user selects a certain target deploy
 The TOSCA Lightning API utilizes the EDMM Transformation Framework such that the required files and templates are generated.
 The EDMM Transformation Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
 The transformation result can be downloaded thru the TOSCA Lightning User Interface.
+
+
+
+## Video
+
+TBD
 
 
 
