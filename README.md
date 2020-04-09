@@ -51,7 +51,9 @@ The transformation result can be downloaded thru the TOSCA Lightning User Interf
 
 ## Video
 
-TBD
+[![Video](docs/video.png)](https://youtu.be/_fNpx6CzPaY)
+
+[Link to the video: https://youtu.be/_fNpx6CzPaY](https://youtu.be/_fNpx6CzPaY)
 
 
 
