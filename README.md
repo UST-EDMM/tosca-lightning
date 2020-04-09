@@ -3,7 +3,7 @@
 
 ![TOSCA Lightning](docs/logo.png)
 
-[**Welcome**](#welcome) &nbsp;|&nbsp; [**Quickstart**](#quickstart) &nbsp;|&nbsp; [**Get In Touch**](#get-in-touch) &nbsp;|&nbsp; [**Learn More**](#learn-more)
+[**Welcome**](#welcome) &nbsp;|&nbsp; [**Video**](#video) &nbsp;|&nbsp; [**Quickstart**](#quickstart) &nbsp;|&nbsp; [**Get In Touch**](#get-in-touch) &nbsp;|&nbsp; [**Learn More**](#learn-more)
 
 ---
 
@@ -26,7 +26,7 @@ By using the TOSCA Lightning toolchain, practitioners are able to model their ap
 The toolchain consists of four main components:
 (i) the TOSCA Lightning User Interface,
 (ii) the TOSCA Lightning API,
-(iii) the Modeling Tool [Eclipse Winery](https://github.com/eclipse/winery), and
+(iii) the [Modeling Tool Eclipse Winery](https://github.com/eclipse/winery), and
 (iv) the [EDMM Transformation Framework](https://github.com/UST-EDMM/transformation-framework).
 
 ![](docs/toolchain.png)
