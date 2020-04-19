@@ -41,7 +41,7 @@ class Footer extends Component<Props> {
             <Grid item xs={6}>
               <Typography variant="subtitle1" align="left" color="textSecondary" component="p"
                           style={{ lineHeight: '40px' }}>
-                Build with <span role="img" aria-label="love">❤️</span> by the University of Stuttgart
+                Built with <span role="img" aria-label="love">❤️</span> by the University of Stuttgart
               </Typography>
             </Grid>
             <Grid item xs={6}>
