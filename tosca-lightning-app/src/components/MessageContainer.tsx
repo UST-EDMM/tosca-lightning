@@ -14,7 +14,7 @@ type Props = StoreProps;
 
 class MessageContainer extends Component<Props> {
 
-  render() {
+  public render() {
     const { message } = this.props;
     return (
       <MessageContent open={message !== null} message={message} onClose={this.handleClose}/>

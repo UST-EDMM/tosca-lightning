@@ -20,7 +20,7 @@ const getServiceTemplates = async (): Promise<ServiceTemplate[]> => {
   return (await response.json()) as ServiceTemplate[];
 };
 
-const transformServiceTemplate = async (target: String, st: ServiceTemplate): Promise<TransformResponse> => {
+const transformServiceTemplate = async (target: string, st: ServiceTemplate): Promise<TransformResponse> => {
   const response = await fetchOrThrow(
     `${config.backend.baseUrl}/service-templates/${st.id}/transform/${target}`,
     { method: 'POST' }
