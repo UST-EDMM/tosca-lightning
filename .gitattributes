@@ -1,3 +1,5 @@
 * text=auto eol=lf
-*.sh eol=lf
-*.md eol=lf
+
+*.jpg binary
+*.png binary
+*.gif binary
