@@ -21,8 +21,8 @@
         <version>1.6</version>
         <executions>
           <execution>
-            <phase>initialize</phase>
             <id>install node and yarn</id>
+            <phase>initialize</phase>
             <goals>
               <goal>install-node-and-yarn</goal>
             </goals>
@@ -32,8 +32,18 @@
             </configuration>
           </execution>
           <execution>
-            <phase>generate-resources</phase>
+            <id>increase network timeout for DockerHub builds (300 secs)</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>config set network-timeout 300000</arguments>
+            </configuration>
+          </execution>
+          <execution>
             <id>install dependencies</id>
+            <phase>generate-resources</phase>
             <goals>
               <goal>yarn</goal>
             </goals>
@@ -42,8 +52,8 @@
             </configuration>
           </execution>
           <execution>
-            <phase>test</phase>
             <id>lint app</id>
+            <phase>test</phase>
             <goals>
               <goal>yarn</goal>
             </goals>
@@ -52,8 +62,8 @@
             </configuration>
           </execution>
           <execution>
-            <phase>package</phase>
             <id>build app</id>
+            <phase>package</phase>
             <goals>
               <goal>yarn</goal>
             </goals>
