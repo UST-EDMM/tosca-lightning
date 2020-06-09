@@ -1,8 +1,6 @@
 version: '3'
 services:
   tosca-lightning:
-    build:
-      context: .
     image: ustedmm/tosca-lightning:latest
     environment:
       WINERY_HOSTNAME: winery
