@@ -20,7 +20,7 @@ services:
       EDMM_TRANSFORMATION_HOSTNAME: ${PUBLIC_HOSTNAME}
       WINERY_FEATURE_EDMM_MODELING: 'true'
     volumes:
-      - ./modeling-repository:/var/opentosca/repository
+      - ./modeling-repository:/var/repository
     ports:
       - '8080:8080'
   transformation-framework:
