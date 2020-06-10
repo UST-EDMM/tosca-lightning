@@ -5,7 +5,7 @@ services:
     environment:
       WINERY_HOSTNAME: winery
       WINERY_PUBLIC_HOSTNAME: ${PUBLIC_HOSTNAME}
-      TRANSFORMATION_HOSTNAME: transformation-framework
+      TRANSFORMATION_HOSTNAME: edmm
       TRANSFORMATION_PUBLIC_HOSTNAME: ${PUBLIC_HOSTNAME}
     ports:
       - '9000:8080'
@@ -21,8 +21,8 @@ services:
       - ./modeling-repository:/var/repository
     ports:
       - '8080:8080'
-  transformation-framework:
-    image: ustedmm/transformation-framework:latest
+  edmm:
+    image: ustedmm/edmm:latest
     volumes:
       - ./modeling-repository:/var/repository
     ports:
