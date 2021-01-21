@@ -176,10 +176,10 @@ Just get in touch with us below:
 
 * Michael Wurster, Uwe Breitenbücher, Michael Falkenthal, Christoph Krieger, Frank Leymann & Karoline Saatkamp:
   [**The Essential Deployment Metamodel: A Systematic Review of Deployment Automation Technologies**](https://link.springer.com/article/10.1007%2Fs00450-019-00412-x).
-  In: SICS Software-Intensive Cyber-Physical Systems (2019)
+  In: SICS Software-Intensive Cyber-Physical Systems, 2019
 * Michael Wurster, Uwe Breitenbücher, Antonio Brogi, Ghareeb Falazi, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
-  [**The EDMM Modeling and Transformation System**](https://www.iaas.uni-stuttgart.de/publications/ICSOC-2019-The-EDMM-Modeling-and-Transformation-System.pdf).
-  In: Service-Oriented Computing - ICSOC 2019 Workshops
+  [**The EDMM Modeling and Transformation System**](https://www.iaas.uni-stuttgart.de/publications/INPROC-2019-41-ICSOC-2019-The-EDMM-Modeling-and-Transformation-System.pdf).
+  In: Service-Oriented Computing - ICSOC 2019 Workshops, 2019
 * Michael Wurster, Uwe Breitenbücher, Lukas Harzenetter, Frank Leymann, Jacopo Soldani and Vladimir Yussupov:
-  **TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies**.
-  In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020 **(To Appear)**
+  [**TOSCA Light: Bridging the Gap Between TOSCA Specification and Production-Ready Deployment Technologies**](https://www.iaas.uni-stuttgart.de/publications/Wurster_TOSCA_Light.pdf).
+  In: Proceedings of the 10th International Conference on Cloud Computing and Services Science (CLOSER), 2020
