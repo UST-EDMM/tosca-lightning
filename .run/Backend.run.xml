@@ -1,6 +1,12 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Backend" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="tosca-lightning-web" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="io.github.edmm.tosca.lightning.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
     <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.edmm.tosca.lightning.Application" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
