@@ -135,21 +135,21 @@ Extract the downloaded archive, open a command-prompt, and change to the respect
 Build Docker images on your Kubernetes cluster:
 
 ```
-docker build -t db ./db
-docker build -t pet-clinic ./pet_clinic
+docker build -t mysql-database:latest ./mysql-database
+docker build -t petclinic:latest ./petclinic
 ```
 
 Apply the generated Kubernetes configuration:
 
 ```
-kubectl apply -f ./db/db-deployment.yaml -f ./db/db-service.yaml
-kubectl apply -f ./pet_clinic/pet-clinic-deployment.yaml -f ./pet_clinic/pet-clinic-service.yaml
+kubectl apply -f ./mysql-database/mysql-database-deployment.yaml -f ./mysql-database/mysql-database-service.yaml
+kubectl apply -f ./petclinic/petclinic-deployment.yaml -f ./petclinic/petclinic-service.yaml
 ```
 
 Launch the PetClinic application:
 
 ```
-minikube service pet-clinic-service
+minikube service petclinic-service
 # or monitor
 minikube dashboard
 ```
