@@ -10,7 +10,7 @@ services:
     ports:
       - '9000:8080'
   winery:
-    image: opentosca/winery:latest
+    image: ustedmm/winery:latest
     environment:
       WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
       WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
