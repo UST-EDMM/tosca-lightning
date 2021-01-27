@@ -1,0 +1,3 @@
+[submodule "modeling-repository"]
+	path = modeling-repository
+	url = https://github.com/UST-EDMM/modeling-repository
