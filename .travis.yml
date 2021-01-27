@@ -1,7 +1,0 @@
-sudo: required
-language: java
-services:
-  - docker
-cache:
-  directories:
-    - $HOME/.m2
