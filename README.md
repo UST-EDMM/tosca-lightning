@@ -79,6 +79,7 @@ Afterwards, the resulting model is translated using the EDMM Transformation Fram
 ```
 git clone https://github.com/UST-EDMM/tosca-lightning
 cd tosca-lightning
+git submodule update --init
 ```
 
 ### Run the TOSCA Lightning User Interface

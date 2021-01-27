@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="https://edmm.uni-stuttgart.de/artifacttemplates" id="winery-defs-for_ateIgeneral1-PetClinic-Start">
-    <ArtifactTemplate xmlns:ToscaBaseTypes="https://edmm.uni-stuttgart.de/artifacttypes" name="PetClinic-Start" type="ToscaBaseTypes:Script" id="PetClinic-Start">
-        <ArtifactReferences>
-            <ArtifactReference reference="artifacttemplates/https%253A%252F%252Fedmm.uni-stuttgart.de%252Fartifacttemplates/PetClinic-Start/files/start.sh"/>
-        </ArtifactReferences>
-    </ArtifactTemplate>
-</Definitions>
