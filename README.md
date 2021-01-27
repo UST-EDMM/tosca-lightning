@@ -1,6 +1,6 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://travis-ci.org/UST-EDMM/tosca-lightning.svg?branch=master)](https://travis-ci.org/UST-EDMM/tosca-lightning)
+![build](https://github.com/UST-EDMM/tosca-lightning/workflows/build/badge.svg)
 
 ![TOSCA Lightning](docs/logo.png)
 
