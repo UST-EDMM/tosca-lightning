@@ -1,7 +1,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![Maven Build](https://github.com/UST-EDMM/tosca-lightning/workflows/build/badge.svg)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ustedmm/tosca-lightning)
+[![Maven Build](https://github.com/UST-EDMM/tosca-lightning/workflows/build/badge.svg)](https://github.com/UST-EDMM/tosca-lightning/actions?query=workflow%3Abuild)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ustedmm/tosca-lightning)](https://hub.docker.com/r/ustedmm/tosca-lightning)
 
 ![TOSCA Lightning](docs/logo.png)
 
