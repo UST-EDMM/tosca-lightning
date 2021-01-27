@@ -143,8 +143,12 @@ docker build -t petclinic:latest ./petclinic
 Apply the generated Kubernetes configuration:
 
 ```
-kubectl apply -f ./mysql-database/mysql-database-deployment.yaml -f ./mysql-database/mysql-database-service.yaml
-kubectl apply -f ./petclinic/petclinic-deployment.yaml -f ./petclinic/petclinic-service.yaml
+kubectl apply -f ./mysql-database/mysql-database-config.yaml \
+              -f ./mysql-database/mysql-database-deployment.yaml \
+              -f ./mysql-database/mysql-database-service.yaml \
+              -f ./petclinic/petclinic-config.yaml \
+              -f ./petclinic/petclinic-deployment.yaml \
+              -f ./petclinic/petclinic-service.yaml
 ```
 
 Launch the PetClinic application:
