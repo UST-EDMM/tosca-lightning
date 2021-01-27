@@ -4,7 +4,7 @@ import { Plugin } from '../models/Plugin';
 import { ServiceTemplate } from '../models/ServiceTemplate';
 import { TransformResponse } from '../models/TransformResponse';
 
-const baseUrl = window.location.protocol + "//" + window.location.hostname + ":9000";
+const baseUrl = window.location.protocol + '//' + window.location.hostname + ':9000';
 
 const getConfig = async (): Promise<Config> => {
   const response = await fetchOrThrow(`${baseUrl}/config`, { method: 'GET' });
