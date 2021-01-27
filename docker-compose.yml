@@ -17,8 +17,7 @@ services:
       TOPOLOGYMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
       EDMM_TRANSFORMATION_HOSTNAME: ${PUBLIC_HOSTNAME}
       WINERY_FEATURE_EDMM_MODELING: 'true'
-    volumes:
-      - ./modeling-repository:/var/repository
+      WINERY_REPOSITORY_URL: 'https://github.com/UST-EDMM/modeling-repository'
     ports:
       - '8080:8080'
   edmm:
