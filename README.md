@@ -29,11 +29,11 @@ The toolchain consists of four main components:
 (i) the TOSCA Lightning User Interface,
 (ii) the TOSCA Lightning API,
 (iii) the [Modeling Tool Eclipse Winery](https://github.com/eclipse/winery), and
-(iv) the [EDMM Transformation Framework](https://github.com/UST-EDMM/transformation-framework).
+(iv) the [EDMM Framework](https://github.com/UST-EDMM/edmm).
 
 ![](docs/toolchain.png)
 
-TOSCA Lightning integrates Eclipse Winery as its modeling environment and the EDMM Transformation Framework for transformation (due to the fact that TOSCA Light is mappable to EDMM; we also use EDMM as the transfer format).
+TOSCA Lightning integrates Eclipse Winery as its modeling environment and the EDMM Framework for transformation (due to the fact that TOSCA Light is mappable to EDMM; we also use EDMM as the transfer format).
 
 Eclipse Winery is a web-based environment to graphically model TOSCA-based application topologies and can be launched thru the TOSCA Lightning User Interface.
 It provides a *Management Interface* to manage all TOSCA related entities, such as node types, their property definitions, operations, and artifacts.
@@ -43,11 +43,11 @@ The modeling environment checks the TOSCA Light compliance and its API is able t
 Each created or imported TOSCA model may be returned by this API.
 Inside Eclipse Winery, the user has access to a list of violated conditions when a TOSCA service template is not compliant with TOSCA Light.
 
-The EDMM Transformation Framework provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
+The EDMM Framework provides the ability to transform a given TOSCA Light model into a set of files and artifacts required by a certain deployment automation technology.
 Using the TOSCA Lightning User Interface, a user selects a certain target deployment technology and is able to trigger the transformation.
-The TOSCA Lightning API utilizes the EDMM Transformation Framework such that the required files and templates are generated.
-The EDMM Transformation Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/transformation-framework#plugins)).
-The transformation result can be downloaded thru the TOSCA Lightning User Interface.
+The TOSCA Lightning API utilizes the EDMM Framework such that the required files and templates are generated.
+The EDMM Framework is plugin-based and, among others, supports technologies such as Kubernetes, Terraform, or Ansible ([full list](https://github.com/UST-EDMM/edmm#plugins)).
+The transformation result can be downloaded through the TOSCA Lightning User Interface.
 
 
 
@@ -68,7 +68,7 @@ It's a web application and runs on a Tomcat web server while connecting to a MyS
 The model is created using the Eclipse Winery modeling environment and can be launch from the TOSCA Lightning user interface.
 Notably, the model is not specifically composed for Kubernetes as the target runtime environment.
 It is rather modeled in a generic, component-based manner.
-Afterwards, the resulting model is translated using the EDMM Transformation Framework to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
+Afterwards, the resulting model is translated using the EDMM Framework to the specific files and templates required by Kubernetes, e.g., Dockerfiles, deployment and service descriptors.
 
 ### Pre-requisites
 
@@ -109,7 +109,7 @@ In addition, new types can be added using the *Node Type* view of the TOSCA Ligh
 
 ### Transform PetClinic Application to Kubernetes 
 
-We utilize the EDMM Transformation Framework to translate the generated model into files and artifacts required by Kubernetes for deployment.
+We utilize the EDMM Framework to translate the generated model into files and artifacts required by Kubernetes for deployment.
 In the TOSCA Lightning user interface, click on the transformation button of the PetClinic application.
 In the presented pop-up, choose *Kubernetes* and click *Transform*.
 After the transformation was successful, you can download an archive containing all required files and artifacts to deploy the PetClinic application to Kubernetes.
@@ -133,22 +133,18 @@ After the transformation was successful, you can download an archive containing 
 > ```
 
 Extract the downloaded archive, open a command-prompt, and change to the respective directory.  
-Build Docker images on your Kubernetes cluster:
+Build the Docker containers on your Kubernetes cluster:
 
 ```
-docker build -t mysql-database:latest ./mysql-database
-docker build -t petclinic:latest ./petclinic
+docker build -t db ./db
+docker build -t petclinic ./petclinic
 ```
 
 Apply the generated Kubernetes configuration:
 
 ```
-kubectl apply -f ./mysql-database/mysql-database-config.yaml \
-              -f ./mysql-database/mysql-database-deployment.yaml \
-              -f ./mysql-database/mysql-database-service.yaml \
-              -f ./petclinic/petclinic-config.yaml \
-              -f ./petclinic/petclinic-deployment.yaml \
-              -f ./petclinic/petclinic-service.yaml
+kubectl apply -f ./db/db-config.yaml -f ./db/db-deployment.yaml -f ./db/db-service.yaml
+kubectl apply -f ./petclinic/petclinic-config.yaml -f ./petclinic/petclinic-deployment.yaml -f ./petclinic/petclinic-service.yaml
 ```
 
 Launch the PetClinic application:
