@@ -169,7 +169,7 @@ minikube delete
 Are you interested in our research, do you have any questions or would you like further information?
 Just get in touch with us below:
 
-* Michael Wurster ([@miwurster](https://github.com/miwurster), [write a mail](mailto:wurster@iaas.uni-stuttgart.de?subject=[GitHub]%20TOSCA%20Lightning))
+* Michael Wurster ([@miwurster](https://github.com/miwurster), [write a mail](mailto:miwurster@gmail.com?subject=[GitHub]%20TOSCA%20Lightning))
 
 
 
